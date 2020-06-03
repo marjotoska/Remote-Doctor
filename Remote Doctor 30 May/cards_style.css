@@ -1,0 +1,147 @@
+.p-mid {
+  display: flex;
+}
+
+.cards {
+  margin-top: 20px;
+  width: 100%;
+  display: -webkit-flex;
+  justify-content: space-between;
+  -webkit-justify-content: center;
+  display: flex;
+}
+
+.card--1 .card__img,
+.card--1 .card__img--hover {
+  background-image: url("Files/headache.jpg");
+}
+
+.card--2 .card__img,
+.card--2 .card__img--hover {
+  background-image: url("Files/green\ smoothie.PNG");
+}
+
+.card--3 .card__img,
+.card--3 .card__img--hover {
+  background-image: url("Files/kid\ allergy.jpeg");
+}
+
+.card__img {
+  visibility: hidden;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 235px;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+}
+
+.card__info-hover {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+}
+
+.card__img--hover {
+  transition: 0.3s all ease-out;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
+  position: absolute;
+  height: 235px;
+  /* border-top-left-radius: 12px;
+  border-top-right-radius: 12px; */
+  top: 0;
+}
+.cardsss {
+  box-sizing: border-box;
+  display: block;
+  /* text-align: center; */
+  margin-right: 20px;
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0, 1);
+  background-color: #fff;
+  width: 33.3%;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+}
+.cardsss:hover {
+  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  transform: scale(1.1, 1.1);
+}
+
+.card__info {
+  z-index: 2;
+  background-color: #fff;
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  padding: 16px 24px 24px 24px;
+}
+
+.card__category {
+  font-family: "Raleway", sans-serif;
+  text-transform: uppercase;
+  font-size: 13px;
+  letter-spacing: 2px;
+  font-weight: 500;
+  color: #868686;
+}
+
+/* FROM THE BLOG H2 */
+h2.card__category {
+  font-family: "champagne & limousines regular";
+  font-size: 17px;
+  font-weight: 400;
+  letter-spacing: 5px;
+  margin: 30px 0px 30px 0px;
+  display: flex;
+  justify-content: space-around;
+}
+/* FROM THE BLOG H2 END*/
+
+@font-face {
+  font-family: "champagne & limousines regular";
+  src: url("Champagne\ &\ Limousines.ttf");
+  font-style: normal;
+  font-weight: 200;
+}
+
+.card__title {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-family: "Roboto Slab", serif;
+}
+
+.card__by {
+  font-size: 12px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 500;
+}
+
+.card__author {
+  font-weight: 600;
+  text-decoration: none;
+  color: #ad7d52;
+}
+
+.cardsss:hover .card__img--hover {
+  height: 100%;
+  opacity: 0.3;
+}
+
+.cardsss:hover {
+  background-color: transparent;
+  position: relative;
+}
+
+@media (min-width: 100px) and (max-width: 900px) {
+  .cardsss {
+    width: 97%;
+    margin-top: 25px;
+  }
+}
