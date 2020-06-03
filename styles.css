@@ -1,0 +1,255 @@
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Open Sans", "sans-serif";
+  font-family: "champagne & limousines regular", "Open Sans";
+}
+html {
+  scroll-behavior: smooth;
+}
+
+ul {
+  list-style: none;
+}
+
+body {
+  background-color: white;
+}
+
+.wrapper {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+/* 
+.bg-img-1 div {
+  background-image: url(Files/main_bg.png);
+  min-height: 100%;
+  position: relative;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: block;
+} */
+
+.container-1,
+.container-2 {
+  display: flex;
+}
+
+.container-1 div {
+  padding: 20px;
+  padding-top: 170px;
+  align-items: center;
+}
+
+.container-1 h1 {
+  font-size: 44px;
+  font-weight: 900;
+  letter-spacing: -0.005em;
+  line-height: 52px;
+  margin-bottom: 12px;
+}
+
+.container-1 p {
+  font-size: 20px;
+}
+
+.cards-div {
+  max-width: 1140px;
+  padding: 0 20px;
+  margin: 0 auto;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  display: flex;
+  /* border: 2px solid #8189a9; */
+}
+
+.card {
+  width: 32.2%;
+  margin-top: 30px;
+  padding: 20px 25px;
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  border-radius: 5px;
+  animation: riseUp 0.5s ease forwards, fadeIn 0.7s ease forwards;
+  opacity: 0;
+}
+
+.card h3 {
+  margin: 25px 0px;
+  font-size: 20px;
+  font-weight: 900;
+}
+
+.border {
+  border: 2px solid #ebf2f2;
+}
+
+.shadow-hover {
+  animation-delay: 0.15s;
+  transition: all 0.2s, transform 0.2s;
+  transform: translateY(0);
+  position: relative;
+  box-shadow: none;
+  top: 0;
+}
+
+.shadow-hover:hover {
+  transform: translateY(-3px);
+  top: -3px;
+  box-shadow: 0 10px 20px 0 rgba(108, 135, 135, 0.2);
+}
+
+@keyframes riseUp {
+  0% {
+    transform: translateY(100px);
+  }
+  100% {
+    transofrm: translateY(0);
+  }
+}
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fas {
+  font-size: 70px;
+}
+
+.tutorial {
+  margin-top: 35px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-1 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  /* background: #15c39a; */
+  align-items: center;
+  background: linear-gradient(45deg, rgb(0, 255, 76), #00a2ff);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  color: #fff;
+  border: 0;
+  box-sizing: border-box;
+  cursor: pointer;
+  height: 50px;
+  padding: 12px 40px;
+
+  border-radius: 100px;
+  transition: transform 190ms ease-in;
+
+  animation: riseUp 0.5s ease forwards, fadeIn 0.7s ease forwards;
+  opacity: 0;
+  animation-delay: 0.15s;
+  transition: all 0.2s, transform 0.2s;
+  transform: translateY(0);
+  position: relative;
+  box-shadow: none;
+  top: 0;
+}
+.button-1:active {
+  transform: scale(0.95);
+}
+
+.button-1:focus {
+  outline: none;
+}
+
+.button-1:hover {
+  transform: translateY(-1.5px);
+  top: -1.5px;
+  box-shadow: 0 10px 20px 0 rgba(108, 135, 135, 0.2);
+}
+
+/* <!-- Seperator Start  --> */
+.seperator {
+  width: 90%;
+  display: block;
+  margin: auto;
+  margin-top: 50px;
+  border-top: 3px solid #ededed;
+}
+/* <!-- Seperator End  --> */
+
+.footer {
+  display: flex;
+  margin-top: 110px;
+  padding: 30px 60px 30px;
+  /* background: linear-gradient(65deg, #fff 0 50%, rgb(0, 148, 247) 50% 100%);
+  background: linear-gradient(45deg, rgb(0, 255, 76), #00a2ff); */
+  color: #fff;
+  background-color: darkblue;
+  /* background-size: 400% 400%;
+  animation: gradient 10s ease infinite; */
+}
+
+.footer-1,
+.footer-2 {
+  display: flex;
+  flex-direction: column;
+  vertical-align: top;
+  width: 40%;
+}
+
+.footer-1 li,
+.footer-2 li {
+  margin-top: 5px;
+  color: #8189a9;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.copyright {
+  padding: 5px 0px 15px 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: darkblue;
+  color: #fff;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@media (min-width: 100px) and (max-width: 700px) {
+  .card {
+    width: 100%;
+  }
+  div:not(.tutorial) {
+    display: block;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .footer-1 {
+    margin-right: 60px;
+  }
+}
+
+@media (min-width: 701px) and (max-width: 1000px) {
+  .card {
+    width: 49%;
+  }
+  .thirdcard {
+    margin-top: 15px;
+    margin-left: 25%;
+  }
+}
