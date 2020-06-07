@@ -51,36 +51,58 @@
     </div>
     <div class="container1" id="container1">
       <div class="form-container sign-up-container">
-        <form name="signUp" action="#" onsubmit="return validateSignUp();" novalidate="true">
+        <form name="signUp" id="register" method="post" action="/" onsubmit="return validateSignUp();" novalidate="">
           <h1>Create Account</h1>
-          <!-- <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          <span>or use your email for registration</span> -->
-          <input type="text" name="firstName" id="firstName" placeholder="First Name" />
-          <input type="text" name="lastName" id="lastName" placeholder="Last Name" />
-          <input type="email" name="email" id="email" placeholder="Email" />
-          <input type="password" name="password" id="password" placeholder="Password" />
-          <input type="password" name="passwordConf" id="passwordConf" placeholder="Repeat Password">
-          <button class="margins">Sign Up</button>
-        </form>
+              <input
+                type="text"
+                name="email" 
+                id="email"
+                placeholder="E-mail"
+                required=""
+              />
+              <input
+                type="text"
+                name="username"
+                id="username"
+                placeholder="Username"
+                required=""
+              />
+              <input
+                type="password"
+                name="password" id="password"
+                placeholder="Password"
+                id="password"
+                required=""
+              />
+              <input
+                type="password"
+                name="passwordConf" id="passwordConf"
+                placeholder="Confirm Password"
+                id="password_conf"
+                required=""
+              />
+              <button class="margins">Sign Up</button>
+            </form>
       </div>
       <div class="form-container sign-in-container">
-        <form name="signIn" action="#" onsubmit="validateSignIn();" novalidate="true">
+        <form name="signIn" action="/" method="post" onsubmit="return validateSignIn()" novalidate="">
           <h1>Sign in</h1>
-          <!-- <div class="social-container">
-            <a href="#" class="social"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" class="social"><i class="fab fa-google-plus-g"></i></a>
-            <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          <span>or use your account</span> -->
-          <input type="email" id="email" placeholder="Email" />
-          <input type="password" id="password" placeholder="Password" />
-          <a href="#">Forgot your password?</a>
-          <button class="margins">Sign In</button>
-        </form>
+              <input
+                type="text"
+                name="logemail"
+                id="email"
+                placeholder="E-mail"
+                required=""
+              />
+              <input
+                type="password"
+                name="logpassword"
+                id="password"
+                placeholder="Password"
+                required=""
+              />
+                 <button class="margins">Sign In</button>
+            </form>
       </div>
       <div class="overlay-container">
         <div class="overlay">
@@ -104,5 +126,17 @@
     </div>
     <script src="login.js"></script> 
     <!-- <script src="navbar.js"></script> -->
+        <script type="text/javascript">
+      var passWordField = document.getElementById("password");
+      var passWordConfirmField = document.getElementById("passwordConf");
+      var form = document.getElementById("register");
+      function validateMyForm() {
+        if (passWordField.value != passWordConfirmField.value) {
+          alert("Passwords do not match. Please try again.");
+        } else {
+          form.submit();
+        }
+      }
+    </script>
   </body>
 </html>

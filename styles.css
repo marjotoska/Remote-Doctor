@@ -1,10 +1,33 @@
+@import url("https://fonts.googleapis.com/css2?family=Martel+Sans&display=swap");
+
 * {
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "Open Sans", "sans-serif";
-  font-family: "champagne & limousines regular", "Open Sans";
+  font-family: "champLimo bold", "Martel Sans", "Open Sans";
+  font-family: "champLimo";
 }
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: "champLimo bold";
+}
+
+@font-face {
+  font-family: "champLimo";
+  src: url("Fonts/ChampLimo/Champagne\ &\ Limousines.ttf");
+  font-weight: 400;
+  font-size: 150%;
+}
+
+@font-face {
+  font-family: "champLimo bold";
+  src: url("Fonts/ChampLimo/Champagne\ &\ Limousines\ Bold.ttf");
+  font-weight: 400;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -21,17 +44,19 @@ body {
   margin-left: 50px;
   margin-right: 50px;
 }
-/* 
+.bg-img-1 {
+  margin-top: 50px;
+}
 .bg-img-1 div {
   background-image: url(Files/main_bg.png);
   min-height: 100%;
-  position: relative;
+  /* position: relative; */
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   display: block;
-} */
+}
 
 .container-1,
 .container-2 {

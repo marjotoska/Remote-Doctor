@@ -45,35 +45,25 @@ function validateSignIn() {
 function validateSignUp() {
   // Sign Up part
   var email = document.forms["signUp"]["email"].value;
-  var firstName = document.forms["signUp"]["firstName"].value;
-  var lastName = document.forms["signUp"]["lastName"].value;
+  var username = document.forms["signUp"]["username"].value;
   var password = document.forms["signUp"]["password"].value;
+  var passwordConf = document.forms["signUp"]["passwordConf"].value;
   var emailValidator = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}\.*([a-zA-Z]{2,})*$/;
   var passwordValidator = /^(?=.*? [A - Z])(?=.*? [a - z])(?=.*? [0 - 9])(?=.*? [# ? !@$%^&* -]).{ 8,} $/;
   var nameValidator = /^[a-zA-Z]{2,}(\ \')*([a-zA-Z]{3,})*$/;
 
-  if (firstName === "" || firstName == null) {
-    alert("Please fill out your First Name!");
-    document.signUp.firstName.focus();
+  if (username === "" || username == null) {
+    alert("Please fill out your username!");
+    document.signUp.username.focus();
     return false;
   }
-  if (!firstName.match(nameValidator)) {
+  if (!username.match(nameValidator)) {
     alert(
       "This is not a valid First Name! It must contain 2 or more letters, followed by a space, 'symbol or more letters(optional) ",
     );
     return false;
   }
-  if (lastName === "" || lastName == null) {
-    alert("Please fill out your Last Name!");
-    document.signUp.lastName.focus();
-    return false;
-  }
-  if (!lastName.match(nameValidator)) {
-    alert(
-      "This is not a valid Last Name! It must contain 2 or more letters, followed by a space, 'symbol or more letters(optional) ",
-    );
-    return false;
-  }
+
   if (email === "" || email == null) {
     alert("Please fill out your E-mail!");
     document.signUp.email.focus();
@@ -90,12 +80,24 @@ function validateSignUp() {
     document.signUp.password.focus();
     return false;
   }
-  if (!password.match(passwordValidator)) {
-    alert(
-      "This is not a valid Password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and special characters",
-    );
-    return false;
-  }
-  return true;
+  // if (!password.match(passwordValidator)) {
+  //   alert(
+  //     "This is not a valid Password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and special characters",
+  //   );
+  //   return false;
+  // }
+
+  // if (passwordConf === "" || passwordConf == null) {
+  //   alert("Please fill out your password!");
+  //   document.signUp.passwordConf.focus();
+  //   return false;
+  // }
+  // if (!passwordConf.match(passwordValidator)) {
+  //   alert(
+  //     "This is not a valid Password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and special characters",
+  //   );
+  //   return false;
+  // }
+  form.submit();
   // Sign Up part End
 }
