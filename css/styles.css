@@ -4,8 +4,7 @@
   margin: 0px;
   padding: 0px;
   box-sizing: border-box;
-  font-family: "champLimo bold", "Martel Sans", "Open Sans";
-  font-family: "champLimo";
+  font-family: "champLimo", "Martel Sans", "Open Sans";
 }
 
 h1,
@@ -17,14 +16,14 @@ h4 {
 
 @font-face {
   font-family: "champLimo";
-  src: url("Fonts/ChampLimo/Champagne\ &\ Limousines.ttf");
+  src: url("../Fonts/ChampLimo/Champagne\ &\ Limousines.ttf");
   font-weight: 400;
   font-size: 150%;
 }
 
 @font-face {
   font-family: "champLimo bold";
-  src: url("Fonts/ChampLimo/Champagne\ &\ Limousines\ Bold.ttf");
+  src: url("../Fonts/ChampLimo/Champagne\ &\ Limousines\ Bold.ttf");
   font-weight: 400;
 }
 
@@ -48,7 +47,7 @@ body {
   margin-top: 50px;
 }
 .bg-img-1 div {
-  background-image: url(Files/main_bg.png);
+  background-image: url(../Files/main_bg.png);
   min-height: 100%;
   /* position: relative; */
   background-attachment: fixed;
@@ -155,48 +154,6 @@ body {
   flex-direction: column;
   align-items: center;
 }
-
-.button-1 {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  /* background: #15c39a; */
-  align-items: center;
-  background: linear-gradient(45deg, rgb(0, 255, 76), #00a2ff);
-  background-size: 400% 400%;
-  animation: gradient 10s ease infinite;
-  color: #fff;
-  border: 0;
-  box-sizing: border-box;
-  cursor: pointer;
-  height: 50px;
-  padding: 12px 40px;
-
-  border-radius: 100px;
-  transition: transform 190ms ease-in;
-
-  animation: riseUp 0.5s ease forwards, fadeIn 0.7s ease forwards;
-  opacity: 0;
-  animation-delay: 0.15s;
-  transition: all 0.2s, transform 0.2s;
-  transform: translateY(0);
-  position: relative;
-  box-shadow: none;
-  top: 0;
-}
-.button-1:active {
-  transform: scale(0.95);
-}
-
-.button-1:focus {
-  outline: none;
-}
-
-.button-1:hover {
-  transform: translateY(-1.5px);
-  top: -1.5px;
-  box-shadow: 0 10px 20px 0 rgba(108, 135, 135, 0.2);
-}
-
 /* <!-- Seperator Start  --> */
 .seperator {
   width: 90%;
@@ -256,6 +213,10 @@ body {
   }
 }
 @media (min-width: 100px) and (max-width: 700px) {
+  /* removes gap between slider & menu */
+  .bg-img-1 {
+    margin-top: 0px;
+  }
   .card {
     width: 100%;
   }

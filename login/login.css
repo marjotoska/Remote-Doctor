@@ -11,7 +11,7 @@ body {
   flex-direction: column;
   background: #f6f5f7;
   font-family: "champLimo", "Montserrat", sans-serif;
-  height: 100vh;
+  min-height: 120vh;
 }
 @font-face {
   font-family: "champLimo";
@@ -19,7 +19,10 @@ body {
   font-weight: 400;
   font-size: 150%;
 }
-
+#noscript {
+  padding: 90px 0px 0px 0px;
+  padding-bottom: 0px;
+}
 h1 {
   font-weight: bold;
   margin: 0;

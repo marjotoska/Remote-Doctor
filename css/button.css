@@ -1,0 +1,35 @@
+.btn {
+  background: linear-gradient(45deg, rgb(0, 255, 76), #00a2ff);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 12px 40px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  /* background-color: #15c39a; */
+}
+
+.btn:active {
+  transform: translateY(2px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #adadad;
+  color: #fff;
+}
+/* for index.html homepage */
+/* height:50 adds some nice padding top & bottom */
+.home-button {
+  height: 50px;
+  margin: 30px;
+  /* display: none; */
+}

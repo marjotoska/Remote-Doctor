@@ -1,20 +1,8 @@
-const signUpButton = document.getElementById("signUp");
-const signInButton = document.getElementById("signIn");
-const container1 = document.getElementById("container1");
-
-signUpButton.addEventListener("click", () => {
-  container1.classList.add("right-panel-active");
-});
-
-signInButton.addEventListener("click", () => {
-  container1.classList.remove("right-panel-active");
-});
-
 function validateSignIn() {
   var email = document.forms["signIn"]["email"].value;
   var emailValidator = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}\.*([a-zA-Z]{2,})*$/;
   var password = document.forms["signIn"]["password"].value;
-  var passwordValidator = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
+  var passwordValidator = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
   // Sign In part
   if (email === "" || email == null) {
@@ -35,7 +23,7 @@ function validateSignIn() {
   }
   if (!password.match(passwordValidator)) {
     alert(
-      "This is not a valid password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and special characters",
+      "This is not a valid Password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and any of these '@$!%*#?&' special characters",
     );
     return false;
   }
@@ -45,35 +33,25 @@ function validateSignIn() {
 function validateSignUp() {
   // Sign Up part
   var email = document.forms["signUp"]["email"].value;
-  var firstName = document.forms["signUp"]["firstName"].value;
-  var lastName = document.forms["signUp"]["lastName"].value;
+  var username = document.forms["signUp"]["username"].value;
   var password = document.forms["signUp"]["password"].value;
+  var passwordConf = document.forms["signUp"]["passwordConf"].value;
   var emailValidator = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}\.*([a-zA-Z]{2,})*$/;
-  var passwordValidator = /^(?=.*? [A - Z])(?=.*? [a - z])(?=.*? [0 - 9])(?=.*? [# ? !@$%^&* -]).{ 8,} $/;
-  var nameValidator = /^[a-zA-Z]{2,}(\ \')*([a-zA-Z]{3,})*$/;
+  var usernameValidator = /(?=.{6,15}$)[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*$/;
+  var passwordValidator = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
-  if (firstName === "" || firstName == null) {
-    alert("Please fill out your First Name!");
-    document.signUp.firstName.focus();
+  if (username === "" || username == null) {
+    alert("Please fill out your username!");
+    document.signUp.username.focus();
     return false;
   }
-  if (!firstName.match(nameValidator)) {
+  if (!username.match(usernameValidator)) {
     alert(
-      "This is not a valid First Name! It must contain 2 or more letters, followed by a space, 'symbol or more letters(optional) ",
+      "This is not a valid Username! It must contain 6 to 15 letters and digits, and have only dash(-), dot(.) and undescore(_) characters!",
     );
     return false;
   }
-  if (lastName === "" || lastName == null) {
-    alert("Please fill out your Last Name!");
-    document.signUp.lastName.focus();
-    return false;
-  }
-  if (!lastName.match(nameValidator)) {
-    alert(
-      "This is not a valid Last Name! It must contain 2 or more letters, followed by a space, 'symbol or more letters(optional) ",
-    );
-    return false;
-  }
+
   if (email === "" || email == null) {
     alert("Please fill out your E-mail!");
     document.signUp.email.focus();
@@ -92,10 +70,25 @@ function validateSignUp() {
   }
   if (!password.match(passwordValidator)) {
     alert(
-      "This is not a valid Password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and special characters",
+      "This is not a valid Password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and any of these '@$!%*#?&' special characters",
     );
     return false;
   }
-  return true;
+  if (passwordConf === "" || passwordConf == null) {
+    alert("Please fill out your password confirmation field!");
+    document.signUp.passwordConf.focus();
+    return false;
+  }
+  if (!passwordConf.match(passwordValidator)) {
+    alert(
+      "This is not a valid Password! Password must contain at least eight characters, at least one number, both lower and uppercase letters and any of these '@$!%*#?&' special characters",
+    );
+    return false;
+  }
+  if (password != passwordConf) {
+    alert("Passwords do not match. Please try again.");
+    return false;
+  }
+  form.submit();
   // Sign Up part End
 }

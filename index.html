@@ -11,9 +11,11 @@
       href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="cards_style.css" />
-    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/cards_style.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/button.css" />
+    <link rel="stylesheet" href="./css/user-icon.css" />
   </head>
   <body>
     <nav class="navi">
@@ -23,10 +25,7 @@
       <a href="index.html" class="nav-item0 is-active" active-color="#01d994"
         >Home</a
       >
-      <a
-        href="/templateLogReg/index.html"
-        class="nav-item0"
-        active-color="#01d994"
+      <a href="/login/index.html" class="nav-item0" active-color="#01d994"
         >Login/ Register</a
       >
       <a href="blog.html" class="nav-item0" active-color="#01d994">Blog</a>
@@ -35,6 +34,14 @@
         >Questionare</a
       >
       <span class="navi-indicator"></span>
+      <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
     </nav>
 
     <div class="container">
@@ -50,12 +57,20 @@
         <img src="Files/logo remote doc drop shadow all.png" alt="" />
       </div>
 
+      <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
+    </nav>
+
       <!-- The Nav Menu -->
       <nav class="nav">
         <a class="nav-item" href="index.html">Home</a>
-        <a class="nav-item" href="/templateLogReg/index.html"
-          >Login/ Register</a
-        >
+        <a class="nav-item" href="/login/index.html">Login/ Register</a>
         <a class="nav-item" href="blog.html">Blog</a>
         <a class="nav-item" href="questionare.html">Questionare</a>
       </nav>
@@ -120,7 +135,12 @@
           <!-- <h3>New here? Get started with this tutorial.</h3> -->
           <h3>Discuss about your issue on a videocall with a doctor.</h3>
         </div>
-        <button class="button-1" , id="join_a_meeting" onclick="changePar()">
+        <button
+          class="btn btn-white btn-animate home-button"
+          ,
+          id="join_a_meeting"
+          onclick="changePar()"
+        >
           Join a meeting
         </button>
         <p id="redirect"></p>
@@ -211,8 +231,7 @@
       src="https://kit.fontawesome.com/64104bcf81.js"
       crossorigin="anonymous"
     ></script>
-    <script src="/app.js"></script>
-    <script src="/changePar.js"></script>
-    <script src="/navbar.js"></script>
+    <script src="/js/changePar.js"></script>
+    <!-- <script src="/js/navbar.js"></script> -->
   </body>
 </html>

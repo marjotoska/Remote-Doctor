@@ -4,18 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="login-style.css" />
-    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="login.css" />
+    <link rel="stylesheet" href="../css/navbar.css" />
+    <link rel="stylesheet" href="../css/user-icon.css">
   </head>
   <body>
-      <nav class="navi">
+    <nav class="navi">
       <div class="logo">
         <img src="Files/logo final 3.png" alt="" />
       </div>
       <a href="index.html" class="nav-item0 is-active" active-color="#01d994"
         >Home</a
       >
-      <a href="login.html" class="nav-item0" active-color="#01d994"
+      <a href="/login/index.html" class="nav-item0" active-color="#01d994"
         >Login/ Register</a
       >
       <a href="blog.html" class="nav-item0" active-color="#01d994">Blog</a>
@@ -24,6 +25,14 @@
         >Questionare</a
       >
       <span class="navi-indicator"></span>
+      <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
     </nav>
 
     <div class="container">
@@ -39,10 +48,20 @@
         <img src="Files/logo remote doc drop shadow all.png" alt="" />
       </div>
 
+      <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
+    </nav>
+
       <!-- The Nav Menu -->
       <nav class="nav">
         <a class="nav-item" href="index.html">Home</a>
-        <a class="nav-item" href="login.html">Login/ Register</a>
+        <a class="nav-item" href="/login/index.html">Login/ Register</a>
         <a class="nav-item" href="blog.html">Blog</a>
         <a class="nav-item" href="questionare.html">Questionare</a>
       </nav>
@@ -52,6 +71,8 @@
     <div class="container1" id="container1">
       <div class="form-container sign-up-container">
         <form name="signUp" id="register" method="post" action="/" onsubmit="return validateSignUp();" novalidate="">
+          
+
           <h1>Create Account</h1>
               <input
                 type="text"
@@ -125,18 +146,9 @@
       </div>
     </div>
     <script src="login.js"></script> 
-    <!-- <script src="navbar.js"></script> -->
-        <script type="text/javascript">
-      var passWordField = document.getElementById("password");
-      var passWordConfirmField = document.getElementById("passwordConf");
-      var form = document.getElementById("register");
-      function validateMyForm() {
-        if (passWordField.value != passWordConfirmField.value) {
-          alert("Passwords do not match. Please try again.");
-        } else {
-          form.submit();
-        }
-      }
-    </script>
+    <script src="validate.js"></script>
+    <script src="/js/current-item.js"></script>
+
+
   </body>
 </html>

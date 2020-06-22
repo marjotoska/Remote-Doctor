@@ -5,9 +5,20 @@ var mongoose = require("mongoose");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
 
+const PORT = process.env.PORT || 8080; // Step 1
+
 //connect to MongoDB
-mongoose.connect("mongodb://localhost/testForAuth");
+mongoose.connect(
+  "mongodb+srv://Marjo:boothbaynightmare@remote-doc-otc5a.mongodb.net/Rem_D?retryWrites=true&w=majority" ||
+    "mongodb://localhost/testForAuth",
+  { useNewUrlParser: true, useUnifiedTopology: true },
+);
 var db = mongoose.connection;
+
+//Test if server is connected to db
+mongoose.connection.on("connected", () => {
+  console.log("Mongoose is connected!!!!");
+});
 
 //handle mongo error
 db.on("error", console.error.bind(console, "connection error:"));
@@ -18,8 +29,8 @@ db.once("open", function () {
 //use sessions for tracking logins
 app.use(
   session({
+    resave: false,
     secret: "work hard",
-    resave: true,
     saveUninitialized: false,
     store: new MongoStore({
       mongooseConnection: db,
@@ -32,7 +43,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // serve static files from template
-app.use(express.static(__dirname + "/templateLogReg"));
+app.use(express.static(__dirname + "/login"));
 
 // include routes
 var routes = require("./routes/router");
@@ -52,7 +63,5 @@ app.use(function (err, req, res, next) {
   res.send(err.message);
 });
 
-// listen on port 3000
-app.listen(3000, function () {
-  console.log("Express app listening on port 3000");
-});
+// listen on port 8080
+app.listen(PORT, console.log(`Server is starting at ${PORT}`));

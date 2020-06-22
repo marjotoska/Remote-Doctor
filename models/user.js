@@ -18,6 +18,10 @@ var UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  date: {
+    type: String,
+    default: new Date(),
+  },
 });
 
 //authenticate input against database
