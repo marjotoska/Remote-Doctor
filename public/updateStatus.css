@@ -1,0 +1,27 @@
+.successfully-uploaded {
+  margin: 0px 150px -50px;
+  background-color: rgb(204, 255, 240);
+  border: 2px solid rgb(0, 230, 161);
+}
+
+.redirect {
+  align-content: center;
+  text-align: center;
+  font-size: 20px;
+}
+
+.red {
+  color: #ff0000;
+}
+
+@media (max-width: 800px) {
+  .container {
+    margin-top: 50px;
+  }
+  .successfully-uploaded {
+    margin: 0px 0px -50px 0px;
+  }
+  .next-page {
+    top: 10px;
+  }
+}

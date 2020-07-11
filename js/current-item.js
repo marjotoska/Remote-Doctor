@@ -1,5 +1,5 @@
-const indicator = document.querySelector(".nav-indicator");
-const items = document.querySelectorAll(".nav-item");
+const indicator = document.querySelector(".navi-indicator");
+const items = document.querySelectorAll(".nav-item0");
 
 function handleIndicator(el) {
   items.forEach((item) => {

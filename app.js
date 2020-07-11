@@ -16,7 +16,7 @@ mongoose.connect(
 var db = mongoose.connection;
 
 //Test if server is connected to db
-mongoose.connection.on("connected", () => {
+db.on("connected", () => {
   console.log("Mongoose is connected!!!!");
 });
 
@@ -29,7 +29,7 @@ db.once("open", function () {
 //use sessions for tracking logins
 app.use(
   session({
-    resave: false,
+    resave: true,
     secret: "work hard",
     saveUninitialized: false,
     store: new MongoStore({
@@ -51,7 +51,7 @@ app.use("/", routes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
-  var err = new Error("File Not Found");
+  var err = new Error("404: File Not Found");
   err.status = 404;
   next(err);
 });

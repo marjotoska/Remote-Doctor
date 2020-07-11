@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="image.css" />
+    <link rel="stylesheet" href="button.css" />
+    <link rel="stylesheet" href="user-icon.css" />
+  </head>
+
+  <body>
+    <span class="sign-in" id="sign-in">Hi User</span>
+    <div class="avatar-upload" id="avatar-forimagehtml">
+      <div class="avatar-preview">
+        <div id="imagePreview"></div>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="smaller-container"></div>
+      <h3 class="back">Back to home page</h3>
+      <h1 class="complete-profile">
+        Please complete your profile
+        <small>by uploading an image of yourself.</small>
+      </h1>
+      <form
+        action="/upload"
+        id="pic-form"
+        method="POST"
+        enctype="multipart/form-data"
+      >
+        <div class="avatar-upload1">
+          <div class="avatar-edit1">
+            <input
+              type="file"
+              name="file"
+              id="imageUpload"
+              accept=".png, .jpg, .jpeg"
+            />
+            <label for="imageUpload"></label>
+          </div>
+
+          <div class="avatar-preview1">
+            <div
+              id="imagePreview"
+              style="background-image: url(https://i.imgur.com/Cd4b5Gz.png);"
+            ></div>
+            <button
+              type="submit"
+              class="btn btn-white btn-animate"
+              value="Upload"
+              id="image-Submit"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+        <a type="button" href="../logout">Logout</a>
+      </form>
+    </div>
+  </body>
+  <script src="image.js"></script>
+  <script src="main.js"></script>
+</html>

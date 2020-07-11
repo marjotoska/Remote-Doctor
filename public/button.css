@@ -1,0 +1,64 @@
+.btn {
+  border: 0;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 20px;
+  padding: 15px 20px;
+  border-radius: 100px;
+  transition: all 0.2s;
+}
+
+.btn:disabled {
+  background-color: crimson;
+}
+
+.btn:disabled:hover {
+  background-color: crimson;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  background-color: #15c39a;
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+  background-color: #adadad;
+  color: #fff;
+}
+
+.btn-animated {
+  animation: moveInBottom 5s ease-out;
+  animation-fill-mode: backwards;
+}
+
+.next-page {
+  position: absolute;
+  right: 50px;
+  top: 15px;
+  /* margin: 0px 0px 0px 0px; */
+}
+
+@keyframes moveInBottom {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+#image-Submit {
+  padding: 10px 25px 10px 25px;
+  display: block;
+  margin: 20px auto 0px 50px;
+
+  /* margin: 5px 10px 5px 10px; */
+}

@@ -98,7 +98,14 @@
     z-index: 998;
     position: relative;
     background-color: #01d994;
-    overflow: hidden;
+    /* overflow: hidden; */
+  }
+
+  /* because of login page errors */
+  .container-login {
+    display: block;
+    position: absolute;
+    z-index: 1300;
   }
 
   /* Toggle Functionality */

@@ -4,30 +4,31 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
     <link rel="stylesheet" href="login.css" />
     <link rel="stylesheet" href="../css/navbar.css" />
     <link rel="stylesheet" href="../css/user-icon.css">
+    <!-- <link rel="stylesheet" href="../css/fonts.css"> -->
   </head>
   <body>
     <nav class="navi">
       <div class="logo">
-        <img src="Files/logo final 3.png" alt="" />
+        <!-- note: logo expands the y-axis of navbar  -->
+        <img src="../Files/logo final 3.png" alt="Remote Doc Logo" />
       </div>
-      <a href="index.html" class="nav-item0 is-active" active-color="#01d994"
+      <a href="../index.html" class="nav-item0" active-color="#01d994"
         >Home</a
       >
-      <a href="/login/index.html" class="nav-item0" active-color="#01d994"
+      <a href="index.html" class="nav-item0 is-active" active-color="#01d994"
         >Login/ Register</a
       >
-      <a href="blog.html" class="nav-item0" active-color="#01d994">Blog</a>
+      <a href="../blog.html" class="nav-item0" active-color="#01d994">Blog</a>
       <span class="navi-indicator"></span>
       <a href="questionare.html" class="nav-item0" active-color="#01d994"
         >Questionare</a
       >
       <span class="navi-indicator"></span>
-      <a href="./login/index.html" class="sign-in" href="./login/index.html"
-        >Log In</a
-      >
+      <a href="index.html" class="sign-in">Log In</a>
       <div class="avatar-upload">
         <div class="avatar-preview">
           <div id="imagePreview"></div>
@@ -35,7 +36,7 @@
       </div>
     </nav>
 
-    <div class="container">
+    <div class="container container-login">
       <div id="line"></div>
 
       <input id="toggle" type="checkbox" />
@@ -81,18 +82,29 @@
                 placeholder="E-mail"
                 required=""
               />
-              <input
+              <!-- <input
                 type="text"
                 name="username"
                 id="username"
                 placeholder="Username"
+                required=""
+              /> -->
+              <input
+                type="text"
+                name="firstname" id="firstname"
+                placeholder="First Name"
+                required=""
+              />
+              <input
+                type="text"
+                name="lastname" id="lastname"
+                placeholder="Last Name"
                 required=""
               />
               <input
                 type="password"
                 name="password" id="password"
                 placeholder="Password"
-                id="password"
                 required=""
               />
               <input
@@ -147,7 +159,7 @@
     </div>
     <script src="login.js"></script> 
     <script src="validate.js"></script>
-    <script src="/js/current-item.js"></script>
+    <script src="../js/current-item.js"></script>
 
 
   </body>
