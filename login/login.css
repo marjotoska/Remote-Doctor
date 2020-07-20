@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css?family=Montserrat:400,800");
+/* @import url("https://fonts.googleapis.com/css?family=Montserrat:400,800"); */
 
 * {
   margin: 0px;
@@ -17,7 +17,7 @@ body {
 }
 @font-face {
   font-family: "champLimo";
-  src: url("../Fonts/ChampLimo/Champagne\ &\ Limousines.ttf");
+  src: url("Champagne\ &\ Limousines.ttf");
   font-weight: 400;
   font-size: 150%;
 }
@@ -241,4 +241,23 @@ input {
   margin: 0 5px;
   height: 40px;
   width: 40px;
+}
+
+.small {
+  /* fixes radios not showing up */
+  display: inline-block;
+}
+
+/* select radio inputs */
+input[id="doctor"] {
+  /* padding-right: 10px; */
+}
+input[id="patient"] {
+  /* padding-right: 10px; */
+}
+
+/* select label elements*/
+label {
+  /* display: inline-block;
+  flex-direction: row; */
 }

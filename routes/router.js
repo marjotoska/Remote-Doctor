@@ -9,7 +9,7 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const GridFsStorage = require("multer-gridfs-storage");
 const Grid = require("gridfs-stream");
-// Multer end
+
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "pug");
 
@@ -20,6 +20,8 @@ router.get("/", function (req, res, next) {
 
 //READ THE IMAGE UPLOAD FOLDER
 router.use(express.static("public"));
+// Assign as static to read css and js also
+router.use(express.static("publicCopy"));
 
 //POST route for updating data
 router.post("/", function (req, res, next) {
@@ -36,12 +38,14 @@ router.post("/", function (req, res, next) {
     req.body.firstname &&
     req.body.lastname &&
     req.body.password &&
-    req.body.passwordConf
+    req.body.passwordConf &&
+    req.body.privilege
   ) {
     var userData = {
       email: req.body.email,
       fullname: req.body.firstname + " " + req.body.lastname,
       password: req.body.password,
+      privilege: req.body.privilege,
     };
 
     //NEW USER REGISTRATION
@@ -93,7 +97,7 @@ let gfs;
 conn.once("open", () => {
   // Save in Atlas
   gfs = Grid(conn.db, mongoose.mongo);
-  const uploadsCollection = gfs.collection("uploads");
+  var uploadToAtlas = gfs.collection("uploads");
 });
 
 // Create storage engine
@@ -127,7 +131,7 @@ router.get("/complete-profile", function (req, res, next) {
       return next(error);
     } else {
       if (user === null) {
-        var err = new Error("Not authorized! Go back!");
+        const err = new Error("Not authorized! Go back!");
         err.status = 400;
         return next(err);
       } else {
@@ -142,8 +146,161 @@ router.get("/complete-profile", function (req, res, next) {
 
 router.post("/upload", upload.single("file"), (req, res) => {
   // Note: Allows duplicates
-  res.send("<h1>U did it!</h1>");
+  res.send(
+    "<h1>Image Was Uploaded on MongoDB!</h1>" +
+      "<br>" +
+      '<a class="btn btn-white btn-animate proceed-to-chat" type="button" href="../pre-chat">Proceed to chat</a>',
+  );
 });
+
+// const uploadToAtlas = gfs.collection("uploads");
+
+// Render preChat.pug
+router.get("/pre-chat", function (req, res, next) {
+  User.aggregate([
+    {
+      $project: {
+        _id: 0,
+        fullname: {
+          $cond: {
+            if: { $eq: ["Patient", "$privilege"] },
+            then: "$$REMOVE",
+            else: "$fullname",
+          },
+        },
+        privilege: {
+          $cond: {
+            if: { $eq: ["Patient", "$privilege"] },
+            then: "$$REMOVE",
+            else: "$privilege",
+          },
+        },
+      },
+    },
+  ]).exec(function (error, user) {
+    if (error) {
+      return next(error);
+    } else {
+      if (user === null) {
+        const err = new Error("Not authorized! Go back!");
+        err.status = 400;
+        return next(err);
+      } else {
+        // Read html
+        res.sendFile(path.join(__dirname, "../publicCopy", "index.html"));
+        console.log(user);
+      }
+    }
+  });
+});
+
+// Render chat.pug
+router.get("/chat", function (req, res, next) {
+  const botName = "Remote Doctor Bot";
+
+  // Run when client connects
+  io.on("connection", (socket) => {
+    socket.on("joinRoom", ({ username, room }) => {
+      const user = userJoin(socket.id, username, room);
+
+      socket.join(user.room);
+
+      // Welcome current user
+      socket.emit(
+        "message",
+        formatMessage(
+          botName,
+          "This is the beginning of your message history with... " + username,
+        ),
+      );
+
+      // Broadcast when a user connects
+      // socket.broadcast
+      //   .to(user.room)
+      //   .emit(
+      //     "message",
+      //     formatMessage(botName, `${user.username} has joined the chat`),
+      //   );
+
+      // Send users and room info
+      io.to(user.room).emit("roomUsers", {
+        room: user.room,
+        users: getRoomUsers(user.room),
+      });
+    });
+
+    // Listen for chatMessage
+    socket.on("chatMessage", (msg) => {
+      const user = getCurrentUser(socket.id);
+
+      io.to(user.room).emit("message", formatMessage(user.username, msg));
+
+      // Import msg model for usage
+      const Msg = require("./models/msg");
+      // save msg to Atlas, username & message being the same as socket
+      let doc1 = new Msg({ user: user.username, msg: msg });
+
+      doc1.save(function (err, doc) {
+        if (err) return console.error(err);
+        //Runs everytime a new msg is added
+        console.log("Msg inserted successfully!");
+      });
+    });
+
+    // Runs when client disconnects
+    socket.on("disconnect", () => {
+      const user = userLeave(socket.id);
+
+      if (user) {
+        io.to(user.room).emit(
+          "message",
+          formatMessage(botName, `${user.username} has left the chat`),
+        );
+
+        // Send users and room info
+        io.to(user.room).emit("roomUsers", {
+          room: user.room,
+          users: getRoomUsers(user.room),
+        });
+      }
+    });
+  });
+});
+// DOESNT WORK!!!!! (its to show image from db)
+// ||||||||||||||||||||||||||||||||||||||||||
+// ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+// gfs.files.findOne(
+//   { filename: "pellumb-pipero-696x385-1.jpg" },
+//   (err, file) => {
+//     // Read output to browser
+//     const readstream = gfs.createReadStream({
+//       filename: "pellumb-pipero-696x385-1.jpg",
+//     });
+//     readstream.pipe(res);
+//     console.log({ metadata: req.session.userId });
+//     console.log({ filename: "" });
+//   },
+// );
+// let p = new Promise((resolve, reject) => {
+//   let metadata = connectForGFS();
+//   // conn.collection("uploads.files")
+//   // .findOne({ metadata: "5f096f5cc4cc201724c27185" });
+//   if (metadata != null) {
+//     resolve("Collection not empty!");
+//     return metadata;
+//   } else {
+//     reject("No data!");
+//   }
+// });
+
+// p.then((message, metadata) => {
+//   console.log("This is in then " + message);
+//   console.log(metadata);
+// }).catch((message) => {
+//   console.log("this is in catch" + message);
+// });
+// const metadata = conn.collection("uploads.files").getIndexes().then();
+// console.log(metadata);
 
 // GET for logout
 router.get("/logout", function (req, res, next) {
@@ -159,4 +316,24 @@ router.get("/logout", function (req, res, next) {
   }
 });
 
+router.get("/find-user", function (req, res, next) {
+  User.findById(req.session.userId).exec(function (error, user) {
+    if (error) {
+      return next(error);
+    } else {
+      if (user === null) {
+        const err = new Error("Not authorized! Go back!");
+        err.status = 400;
+        return next(err);
+      } else {
+        // Render pug template
+        // Pass user(the collection name) as an option
+        console.log(user.fullname);
+      }
+    }
+  });
+});
+
+// var sessionId = req.session.userId;
+// exports.sessioinId = sessionId;
 module.exports = router;

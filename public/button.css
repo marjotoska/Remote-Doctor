@@ -8,6 +8,19 @@
   transition: all 0.2s;
 }
 
+a.btn.btn-white.btn-animate.proceed-to-chat {
+  position: absolute;
+  top: 90%;
+  left: 44.6%;
+  color: white;
+  padding: 10px;
+}
+#mid {
+  position: absolute;
+  top: 80%;
+  left: 48.6%;
+}
+
 .btn:disabled {
   background-color: crimson;
 }

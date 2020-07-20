@@ -9,25 +9,35 @@ head
   link(rel='stylesheet' href='button.css')
   link(rel='stylesheet' href='user-icon.css')
   link(rel='stylesheet' href='updateStatus.css')
-span#sign-in.sign-in Hi #{user.fullname}
-#avatar-forimagehtml.avatar-upload
-  .avatar-preview
-    #imagePreview
+  link(rel='stylesheet' href='dropdown.css')
+.dropdown
+  span#sign-in.sign-in.dropbtn
+    | Hi #{user.fullname}
+    i.fa.fa-arrow-right.fa-rotate-90(aria-hidden='true')
+  .dropdown-content
+    a(type='button' href='../logout') Logout
+  #avatar-forimagehtml.avatar-upload
+    .avatar-preview
+      #imagePreview
 .container
   .smaller-container
   h3.back Back to home page
   h1.complete-profile
     | Please complete your profile
     small by uploading an image of yourself.
-  form#pic-form(name='pic-form' action='/upload' method='POST' enctype='multipart/form-data')
+  form#pic-form(name='/upload' action='/upload' method='POST' enctype='multipart/form-data')
     .avatar-upload1
       .avatar-edit1
         input#imageUpload(type='file' name='file' accept='.png, .jpg, .jpeg')
         label(for='imageUpload')
       .avatar-preview1
         #imagePreview1(style='background-image: url(https://i.imgur.com/Cd4b5Gz.png);')
-        button#image-Submit.btn.btn-white.btn-animate(name='submitImage' type='submit' value='Upload')
+        button#image-Submit.btn.btn-white.btn-animate(type='submit' value='Upload')
           | Submit
-    a(type='button' href='../logout') Logout
+    h3#mid OR
+    a.btn.btn-white.btn-animate.proceed-to-chat(type='button' href='../pre-chat') 
+          | Proceed to chat
 script(src='image.js')
 script(src='main.js')
+//- redirect to pre-chat
+//- a#image-Submit.btn.btn-white.btn-animate(type='button' name='submitImage' href='../pre-chat')

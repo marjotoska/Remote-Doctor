@@ -33,24 +33,24 @@ function validateSignIn() {
 function validateSignUp() {
   // Sign Up part
   var email = document.forms["signUp"]["email"].value;
-  var username = document.forms["signUp"]["username"].value;
+  // var username = document.forms["signUp"]["username"].value;
   var password = document.forms["signUp"]["password"].value;
   var passwordConf = document.forms["signUp"]["passwordConf"].value;
   var emailValidator = /^\w+[\w-+\.]*\@\w+([-\.]\w+)*\.[a-zA-Z]{2,}\.*([a-zA-Z]{2,})*$/;
-  var usernameValidator = /(?=.{6,15}$)[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*$/;
+  // var usernameValidator = /(?=.{6,15}$)[A-Za-z0-9]+(?:[._-][A-Za-z0-9]+)*$/;
   var passwordValidator = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
 
-  if (username === "" || username == null) {
-    alert("Please fill out your username!");
-    document.signUp.username.focus();
-    return false;
-  }
-  if (!username.match(usernameValidator)) {
-    alert(
-      "This is not a valid Username! It must contain 6 to 15 letters and digits, and have only dash(-), dot(.) and undescore(_) characters!",
-    );
-    return false;
-  }
+  // if (username === "" || username == null) {
+  //   alert("Please fill out your username!");
+  //   document.signUp.username.focus();
+  //   return false;
+  // }
+  // if (!username.match(usernameValidator)) {
+  //   alert(
+  //     "This is not a valid Username! It must contain 6 to 15 letters and digits, and have only dash(-), dot(.) and undescore(_) characters!",
+  //   );
+  //   return false;
+  // }
 
   if (email === "" || email == null) {
     alert("Please fill out your E-mail!");
@@ -89,6 +89,6 @@ function validateSignUp() {
     alert("Passwords do not match. Please try again.");
     return false;
   }
-  form.submit();
+  return true;
   // Sign Up part End
 }

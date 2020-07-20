@@ -4,17 +4,18 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap">
+    <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"> -->
     <link rel="stylesheet" href="login.css" />
-    <link rel="stylesheet" href="../css/navbar.css" />
-    <link rel="stylesheet" href="../css/user-icon.css">
+    <link rel="stylesheet" href="navbar.css" />
+    <link rel="stylesheet" href="user-icon.css">
+    <link rel="stylesheet" href="fonts.css">
     <!-- <link rel="stylesheet" href="../css/fonts.css"> -->
   </head>
   <body>
     <nav class="navi">
       <div class="logo">
         <!-- note: logo expands the y-axis of navbar  -->
-        <img src="../Files/logo final 3.png" alt="Remote Doc Logo" />
+        <img src="logo final 3.png" alt="Remote Doc Logo" />
       </div>
       <a href="../index.html" class="nav-item0" active-color="#01d994"
         >Home</a
@@ -46,7 +47,7 @@
       </label>
 
       <div class="logo-mobile">
-        <img src="Files/logo remote doc drop shadow all.png" alt="" />
+        <img src="logo remote doc drop shadow all.png" alt="" />
       </div>
 
       <a href="./login/index.html" class="sign-in" href="./login/index.html"
@@ -71,9 +72,7 @@
     </div>
     <div class="container1" id="container1">
       <div class="form-container sign-up-container">
-        <form name="signUp" id="register" method="post" action="/" onsubmit="return validateSignUp();" novalidate="">
-          
-
+        <form name="signUp" id="register" method="post" action="/" onsubmit="return validateSignUp()" novalidate="">
           <h1>Create Account</h1>
               <input
                 type="text"
@@ -82,13 +81,6 @@
                 placeholder="E-mail"
                 required=""
               />
-              <!-- <input
-                type="text"
-                name="username"
-                id="username"
-                placeholder="Username"
-                required=""
-              /> -->
               <input
                 type="text"
                 name="firstname" id="firstname"
@@ -114,8 +106,22 @@
                 id="password_conf"
                 required=""
               />
+              <h3 class="privilege">You are a:</h3>
+              <div class="flex-row">    
+                <div class="small">
+                  <label for="doctor">Doctor</label>
+                  <!-- same name (privilege) for the same radio group -->
+                  <!-- value for is string for identification in my db -->
+                <input type="radio" name="privilege" id="doctor" value="Doctor">  
+                </div>
+                <div class="small"> 
+                  <label for="patient">Patient</label>
+                <input type="radio" name="privilege" id="patient" value="Patient">
+                </div>            
+              </div>
               <button class="margins">Sign Up</button>
             </form>
+
       </div>
       <div class="form-container sign-in-container">
         <form name="signIn" action="/" method="post" onsubmit="return validateSignIn()" novalidate="">

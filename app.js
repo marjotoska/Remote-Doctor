@@ -4,13 +4,24 @@ var bodyParser = require("body-parser");
 var mongoose = require("mongoose");
 var session = require("express-session");
 var MongoStore = require("connect-mongo")(session);
+// Socket.io
+// const http = require("http");
+// const socketio = require("socket.io");
+// const formatMessage = require("./utils/messages");
+// const {
+//   userJoin,
+//   getCurrentUser,
+//   userLeave,
+//   getRoomUsers,
+// } = require("./utils/users");
+// const server = http.createServer(app);
+// const io = socketio(server);
 
-const PORT = process.env.PORT || 8080; // Step 1
+//Use chat folder
 
 //connect to MongoDB
 mongoose.connect(
-  "mongodb+srv://Marjo:boothbaynightmare@remote-doc-otc5a.mongodb.net/Rem_D?retryWrites=true&w=majority" ||
-    "mongodb://localhost/testForAuth",
+  "mongodb+srv://Marjo:boothbaynightmare@remote-doc-otc5a.mongodb.net/Rem_D?retryWrites=true&w=majority",
   { useNewUrlParser: true, useUnifiedTopology: true },
 );
 var db = mongoose.connection;
@@ -62,6 +73,8 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500);
   res.send(err.message);
 });
+
+const PORT = process.env.PORT || 8080;
 
 // listen on port 8080
 app.listen(PORT, console.log(`Server is starting at ${PORT}`));

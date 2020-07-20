@@ -149,5 +149,3 @@ app.get("/image/:filename", (req, res) => {
     }
   });
 });
-
-// module.exports = app;

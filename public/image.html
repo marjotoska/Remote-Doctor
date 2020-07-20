@@ -14,13 +14,22 @@
     <link rel="stylesheet" href="image.css" />
     <link rel="stylesheet" href="button.css" />
     <link rel="stylesheet" href="user-icon.css" />
+    <link rel="stylesheet" href="dropdown.css" />
   </head>
 
   <body>
-    <span class="sign-in" id="sign-in">Hi User</span>
-    <div class="avatar-upload" id="avatar-forimagehtml">
-      <div class="avatar-preview">
-        <div id="imagePreview"></div>
+    <div class="dropdown">
+      <span class="sign-in dropbtn" id="sign-in"
+        >Hi User
+        <i class="fa fa-arrow-right fa-rotate-90" aria-hidden="true"></i>
+      </span>
+      <div class="dropdown-content">
+        <a type="button" href="../logout">Logout</a>
+      </div>
+      <div class="avatar-upload" id="avatar-forimagehtml">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
       </div>
     </div>
 
@@ -63,10 +72,12 @@
             </button>
           </div>
         </div>
+
         <a type="button" href="../logout">Logout</a>
       </form>
     </div>
   </body>
   <script src="image.js"></script>
   <script src="main.js"></script>
+  <script src="arrow.js"></script>
 </html>
