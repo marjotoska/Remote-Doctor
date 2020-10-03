@@ -31,17 +31,17 @@ io.on("connection", (socket) => {
       "message",
       formatMessage(
         botName,
-        "This is the beginning of your message history with... " + room,
+        "This is the beginning of your message history with " + room,
       ),
     );
 
     // Broadcast when a user connects
-    // socket.broadcast
-    //   .to(user.room)
-    //   .emit(
-    //     "message",
-    //     formatMessage(botName, `${user.username} has joined the chat`),
-    //   );
+    socket.broadcast
+      .to(user.room)
+      .emit(
+        "message",
+        formatMessage(botName, `${user.username} has joined the chat`),
+      );
 
     // Send users and room info
     io.to(user.room).emit("roomUsers", {

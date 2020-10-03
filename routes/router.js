@@ -186,8 +186,8 @@ router.get("/pre-chat", function (req, res, next) {
         err.status = 400;
         return next(err);
       } else {
-        // Read html
-        res.sendFile(path.join(__dirname, "../publicCopy", "index.html"));
+        // Read pug
+        res.render("preChat.pug", { user });
         console.log(user);
       }
     }
@@ -196,116 +196,12 @@ router.get("/pre-chat", function (req, res, next) {
 
 // Render chat.pug
 router.get("/chat", function (req, res, next) {
-  const botName = "Remote Doctor Bot";
-
-  // Run when client connects
-  io.on("connection", (socket) => {
-    socket.on("joinRoom", ({ username, room }) => {
-      const user = userJoin(socket.id, username, room);
-
-      socket.join(user.room);
-
-      // Welcome current user
-      socket.emit(
-        "message",
-        formatMessage(
-          botName,
-          "This is the beginning of your message history with... " + username,
-        ),
-      );
-
-      // Broadcast when a user connects
-      // socket.broadcast
-      //   .to(user.room)
-      //   .emit(
-      //     "message",
-      //     formatMessage(botName, `${user.username} has joined the chat`),
-      //   );
-
-      // Send users and room info
-      io.to(user.room).emit("roomUsers", {
-        room: user.room,
-        users: getRoomUsers(user.room),
-      });
-    });
-
-    // Listen for chatMessage
-    socket.on("chatMessage", (msg) => {
-      const user = getCurrentUser(socket.id);
-
-      io.to(user.room).emit("message", formatMessage(user.username, msg));
-
-      // Import msg model for usage
-      const Msg = require("./models/msg");
-      // save msg to Atlas, username & message being the same as socket
-      let doc1 = new Msg({ user: user.username, msg: msg });
-
-      doc1.save(function (err, doc) {
-        if (err) return console.error(err);
-        //Runs everytime a new msg is added
-        console.log("Msg inserted successfully!");
-      });
-    });
-
-    // Runs when client disconnects
-    socket.on("disconnect", () => {
-      const user = userLeave(socket.id);
-
-      if (user) {
-        io.to(user.room).emit(
-          "message",
-          formatMessage(botName, `${user.username} has left the chat`),
-        );
-
-        // Send users and room info
-        io.to(user.room).emit("roomUsers", {
-          room: user.room,
-          users: getRoomUsers(user.room),
-        });
-      }
-    });
-  });
+  res.render("preChat.pug", { user });
 });
-// DOESNT WORK!!!!! (its to show image from db)
-// ||||||||||||||||||||||||||||||||||||||||||
-// ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
-// gfs.files.findOne(
-//   { filename: "pellumb-pipero-696x385-1.jpg" },
-//   (err, file) => {
-//     // Read output to browser
-//     const readstream = gfs.createReadStream({
-//       filename: "pellumb-pipero-696x385-1.jpg",
-//     });
-//     readstream.pipe(res);
-//     console.log({ metadata: req.session.userId });
-//     console.log({ filename: "" });
-//   },
-// );
-// let p = new Promise((resolve, reject) => {
-//   let metadata = connectForGFS();
-//   // conn.collection("uploads.files")
-//   // .findOne({ metadata: "5f096f5cc4cc201724c27185" });
-//   if (metadata != null) {
-//     resolve("Collection not empty!");
-//     return metadata;
-//   } else {
-//     reject("No data!");
-//   }
-// });
-
-// p.then((message, metadata) => {
-//   console.log("This is in then " + message);
-//   console.log(metadata);
-// }).catch((message) => {
-//   console.log("this is in catch" + message);
-// });
-// const metadata = conn.collection("uploads.files").getIndexes().then();
-// console.log(metadata);
 
 // GET for logout
 router.get("/logout", function (req, res, next) {
   if (req.session) {
-    // delete session object
     req.session.destroy(function (err) {
       if (err) {
         return next(err);

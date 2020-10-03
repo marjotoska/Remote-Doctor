@@ -26,16 +26,12 @@ mongoose.connect(
 );
 var db = mongoose.connection;
 
-//Test if server is connected to db
 db.on("connected", () => {
   console.log("Mongoose is connected!!!!");
 });
 
-//handle mongo error
 db.on("error", console.error.bind(console, "connection error:"));
-db.once("open", function () {
-  // we're connected!
-});
+db.once("open", function () {});
 
 //use sessions for tracking logins
 app.use(

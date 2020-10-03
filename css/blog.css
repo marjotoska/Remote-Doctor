@@ -1,0 +1,78 @@
+* {
+  font-family: "Lato Light", "champLimo", Montserrat;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Lato Light";
+  src: url("../Fonts/lato/Lato-Light.ttf");
+  font-weight: 400;
+  font-size: 150%;
+}
+
+@font-face {
+  font-family: "Lato Medium";
+  src: url("../Fonts/lato/Lato-Medium.ttf");
+  font-weight: 400;
+  font-size: 150%;
+}
+
+@font-face {
+  font-family: "Lato Bold";
+  src: url("../Fonts/lato/Lato-Bold.ttf");
+  font-weight: 400;
+  font-size: 150%;
+}
+
+.video {
+  /* border: none;
+  text-decoration: none; */
+  /* position: absolute; */
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 10% 35% 3% 5%;
+  background-color: #fff;
+}
+
+p {
+  font-size: 22px;
+  font-weight: 500;
+  letter-spacing: 0.1px;
+  margin: 15px 0px 15px 0px;
+  line-height: 35px;
+}
+
+h1 {
+  font-family: "Lato Medium", "champLimo", Montserrat;
+  font-size: 40px;
+  letter-spacing: 0.5px;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-family: "Lato Medium", "champLimo", Montserrat;
+  font-size: 29px;
+  margin-top: 25px;
+}
+
+.green {
+  color: #10c400;
+}
+
+div.ingredients {
+  display: flex;
+  flex-direction: row;
+}
+
+#spinach {
+  margin-top: 5px;
+}
+
+ol {
+  margin: 5px 0px 5px 5px;
+  list-style-type: disc;
+  /* list-style-image: url("..Files/Banana-vector-transparent-PNG.png"); */
+}

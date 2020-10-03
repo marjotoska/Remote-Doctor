@@ -23,6 +23,10 @@ a:visited {
   color: rgb(95, 95, 95);
 }
 
+a.emerald-a:visited {
+  color: rgb(158, 0, 164);
+}
+
 /* user icon */
 /* postition absolute and left 87% to be anchored in place when page is zoomed or shrinked */
 .avatar-upload {
