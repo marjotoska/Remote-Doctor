@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="canonical" href="https://marjotoska.github.io/Remote-Doctor/" />
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+    />
+    <meta name="description" content="Project built in MERN stack for my diploma thesis. Consider taking a look as there's interesting content.">
+    <title>Remote Doctor</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/cards_style.css" />
+    <link rel="stylesheet" href="./css/navbar.css" />
+    <link rel="stylesheet" href="./css/button.css" />
+    <link rel="stylesheet" href="./css/user-icon.css" />
+  </head>
+  <body>
+    <nav class="navi">
+      <div class="logo">
+        <img src="Files/logo final 3.png" alt="Remote Doc Logo" />
+      </div>
+      <a href="index.html" class="nav-item0 is-active" active-color="#01d994"
+        >Home</a
+      >
+      <a href="./login/index.html" class="nav-item0" active-color="#01d994"
+        >Login/ Register</a
+      >
+      <a href="blog.html" class="nav-item0" active-color="#01d994">Blog</a>
+      <span class="navi-indicator"></span>
+      <a href="questionare.html" class="nav-item0" active-color="#01d994"
+        >Questionare</a
+      >
+      <span class="navi-indicator"></span>
+      <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div id="line"></div>
+
+      <input id="toggle" type="checkbox" />
+
+      <label class="toggle-container" for="toggle">
+        <span class="button button-toggle"></span>
+      </label>
+
+      <div class="logo-mobile">
+        <img src="Files/logo remote doc drop shadow all.png" alt="" />
+      </div>
+
+      <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
+    </nav>
+
+      <!-- The Nav Menu -->
+      <nav class="nav">
+        <a class="nav-item" href="index.html">Home</a>
+        <a class="nav-item" href="./login/index.html">Login/ Register</a>
+        <a class="nav-item" href="blog.html">Blog</a>
+        <a class="nav-item" href="./questionare.html">Questionare</a>
+      </nav>
+    </div>
+
+    <div class="bg-img-1">
+      <div class="container-1">
+        <div class="box-1">
+          <h1>Meet Your Doctor Online.</h1>
+          <p>
+            Are you sick? Not able to leave the bed? <br />
+            Your doctor can be right there with you!
+          </p>
+        </div>
+        <div class="box-2"></div>
+      </div>
+    </div>
+    <div class="wrapper">
+      <div class="cards-div">
+        <div class="card shadow-hover border">
+          <i class="fas fa-user-md"></i>
+          <h3>Online Vists</h3>
+
+          <p>
+            Get expert advice from a doctor of your choice. Consult about your
+            condition and get a medical evaluation.
+          </p>
+        </div>
+        <div class="card shadow-hover border">
+          <img
+            src="Files/waiting.png"
+            alt="*Waiting in chair icon*"
+            height="78"
+            width="82"
+          />
+          <h3>Avoid Long Lines</h3>
+          <p>
+            Waiting lines can be tiresome as well as increase the risk of
+            contracting an airborne virus. contracting
+          </p>
+        </div>
+        <div class="card shadow-hover border thirdcard">
+          <img
+            src="Files/prescription.png"
+            ,
+            alt="*Receipt and pills prescribed by doctor*"
+            ,
+            height="82"
+            width="78"
+            ,
+          />
+          <h3>Medicine Prescription</h3>
+          <p>
+            Get the required prescription and advice to treat your sickness.
+          </p>
+        </div>
+      </div>
+
+      <div class="tutorial">
+        <div class="col1">
+          <!-- To be used later for tutorial -->
+          <!-- <h3>New here? Get started with this tutorial.</h3> -->
+          <h3>Discuss about your issue on a videocall with a doctor.</h3>
+        </div>
+        <button
+          class="btn btn-white btn-animate home-button"
+          ,
+          id="join_a_meeting"
+          onclick="changePar()"
+        >
+          Join a meeting
+        </button>
+        <p id="redirect"></p>
+      </div>
+
+      <!-- Seperator Start  -->
+
+      <div class="seperator"></div>
+
+      <!-- Seperator End  -->
+
+      <!-- Blog 2 Tests -->
+      <h2 class="card__category">FROM THE BLOG</h2>
+      <div class="cards">
+        <article class="cardsss card--1">
+          <div class="card__img"></div>
+          <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+          </a>
+          <div class="card__info">
+            <span class="card__category"> Feeling under the weather?</span>
+            <h3 class="card__title">
+              Take this online test to determine if you have a cold or
+              influenz...
+            </h3>
+            <a href="#" class="card__author" title="author">Read More</a>
+          </div>
+        </article>
+
+        <article class="cardsss card--2">
+          <div class="card__img"></div>
+          <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+          </a>
+          <div class="card__info">
+            <span class="card__category">Green Detox Smoothie Recipe</span>
+            <h3 class="card__title">
+              This nutrient-rich smoothie is loaded with...
+            </h3>
+            <a href="#" class="card__author" title="author">Read More</a>
+          </div>
+        </article>
+
+        <article class="cardsss card--3">
+          <div class="card__img"></div>
+          <a href="#" class="card_link">
+            <div class="card__img--hover"></div>
+          </a>
+          <div class="card__info">
+            <span class="card__category">Allergy Season Measuers</span>
+            <h3 class="card__title">
+              Learn how to protect youself from those pesky allergens...
+            </h3>
+            <a href="#" class="card__author" title="author">Read More</a>
+          </div>
+        </article>
+      </div>
+
+      <!-- blog 2 test -->
+
+            <!-- Seperator Start  -->
+
+            <div class="seperator"></div>
+
+            <!-- Seperator End  -->
+            <h2 class="emerald-h2">Interested in Dental Services?</h2>
+
+            <p class="emerald-p">Emerald Dental Clinic is specialised for giving foreign patients <b class="emerald-b">a full smile makeover!</b> You can read more about them by visiting 
+              <a href="https://www.emeraldental.com"target="_blank" class="emerald-a">their website</a> or clicking on the image below and contacting them as they have 
+              a good resume of foreign patients.</p>
+
+            <div class="emerald-card">
+            <article class="cardsss card--4">
+              <div class="card__img"></div>
+              <a href="https://www.emeraldental.com/" target="_blank" class="card_link">
+                <div class="card__img--hover"></div>
+              </a>
+              <div class="card__info">
+                <span class="card__category">Emerald Dental Clinic</span>
+                <h3 class="card__title">
+                  Dental Tourism in Albania | Quality service and competitive prices
+                </h3>
+                <a href="https://www.emeraldental.com/" target="_blank" class="card__author" title="author">Read More</a>
+              </div>
+            </article>
+          </div>
+    </div>
+    <footer class="footer">
+      <div class="footer-1">
+        <h4>Get Started</h4>
+        <ul>
+          <li>Login/Register</li>
+          <li>Tutorial</li>
+          <li>About</li>
+        </ul>
+      </div>
+      <div class="footer-2">
+        <h4>Support</h4>
+        <ul>
+          <li>Contact us</li>
+          <li>Contribute</li>
+        </ul>
+      </div>
+    </footer>
+
+    <p class="copyright">
+      Copyright &copy
+      <script type="text/javascript">
+        document.write(new Date().getFullYear());
+      </script>
+      Marjo Toska
+    </p>
+
+    <script
+      src="https://kit.fontawesome.com/64104bcf81.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./js/changePar.js"></script>
+      <script src="./js/current-item.js"></script>
+    <!-- <script src="/js/navbar.js"></script> -->
+  </body>
+</html>
