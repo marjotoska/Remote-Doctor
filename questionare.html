@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/questionare.css" />
+    <link rel="stylesheet" href="./css/button.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/user-icon.css">
+    <!--  -->
+    <link rel="stylesheet" href="styles.css">
+    <!-- changes body structure and font, revise later? -->
+      <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script> -->
+  </head>
+  <body>
+     <nav class="navi">
+      <div class="logo">
+        <img src="Files/logo final 3.png" alt="" />
+      </div>
+      <a href="index.html" class="nav-item0 is-active" active-color="#01d994"
+        >Home</a
+      >
+      <a href="./login/index.html" class="nav-item0" active-color="#01d994"
+        >Login/ Register</a
+      >
+      <a href="blog.html" class="nav-item0" active-color="#01d994">Blog</a>
+      <span class="navi-indicator"></span>
+      <a href="questionare.html" class="nav-item0" active-color="#01d994"
+        >Questionare</a
+      >
+      <span class="navi-indicator"></span>
+   <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div id="line"></div>
+
+      <input id="toggle" type="checkbox" />
+
+      <label class="toggle-container" for="toggle">
+        <span class="button button-toggle"></span>
+      </label>
+
+      <div class="logo-mobile">
+        <img src="Files/logo remote doc drop shadow all.png" alt="" />
+      </div>
+
+      <a href="./login/index.html" class="sign-in" href="./login/index.html"
+        >Log In</a
+      >
+      <div class="avatar-upload">
+        <div class="avatar-preview">
+          <div id="imagePreview"></div>
+        </div>
+      </div>
+    </nav>
+
+      <!-- The Nav Menu -->
+      <nav class="nav">
+        <a class="nav-item" href="index.html">Home</a>
+        <a class="nav-item" href="./login/index.html">Login/ Register</a>
+        <a class="nav-item" href="blog.html">Blog</a>
+        <a class="nav-item" href="questionare.html">Questionare</a>
+      </nav>
+    </div>
+
+
+<!-- onsubmit="return (validateForm());  action="https://formspree.io/xlepjpjo"  method="post"" -->
+    <section class="heading">   
+     <h1>Let Us Help You</h1>
+      <h3>Fill out this questionare that will help us evaluate your medical condition.<h3>
+        <h3>It will only take 2 minutes!</h3>
+    </section>
+
+    <div class="wrapper">
+      <form name="questionare" action="https://formspree.io/xlepjpjo" onsubmit="return validate();" method="post">
+        <h2 class="allergies">CHECK ANY CONDITIONS YOU ARE CURRENTLY BEING TREATED FOR OR HAVE HAD IN THE PAST:</h2>
+        <div class="group">
+          
+          <input type="radio" class="enableOpt" name="No Past Conditions" id="rb0" onclick="ckChange(this)" />
+          <label for="rb0">No Past Conditions </label>
+           <input type="button" class="btn btn-white btn-animate" value="Clear" onclick="Clear()">
+          
+        </div>
+        <div class="group">
+          <input type="checkbox" class="enableOpt" name="No Past Conditions" id="cb1" value="Yes" onclick="ckChange(this)" />
+          <label for="cb1">Heart disease </label>
+          <input type="checkbox" class="enableOpt" name="Anemia or other blood disease" id="cb2" value="Yes" onclick="ckChange(this)"/>
+          <label for="cb2">Anemia or other blood disease</label>
+          <input type="checkbox" class="enableOpt" name="Severe headaches" id="cb3" value="Yes" onclick="ckChange(this)"/>
+          <label for="cb3">Severe headaches</label>
+        </div>
+        <div class="group">
+          <input type="checkbox" class="enableOpt" name="Neck pain" value="Yes" id="cb4"  />
+          <label for="cb4">Neck pain</label> <br />
+          <input type="checkbox" class="enableOpt"name="High cholesterol" value="Yes" id="cb5"  />
+          <label for="cb5">High cholesterol</label>
+          <br />
+          <input type="checkbox" class="enableOpt"name="Stomach disease" value="Yes" id="cb6"  />
+          <label for="cb6">Stomach disease</label>
+        </div>
+        <div class="group">
+          <input type="checkbox" class="enableOpt"name="Stroke" value="Yes" id="cb7"  />
+          <label for="cb7">Stroke</label> <br />
+          <input type="checkbox" class="enableOpt"name="Sleep apnea" value="Yes" id="cb8"  />
+          <label for="cb8">Sleep apnea</label> <br />
+          <input type="checkbox" class="enableOpt"name="Diabetes" value="Yes" id="cb9" />
+          <label for="cb9">Diabetes</label> <br />
+        </div>
+        <div class="group">
+          <input type="checkbox" class="enableOpt"name="Cancer (past or present) " value="Yes" id="cb10"  />
+          <label for="cb10">Cancer (past or present) </label><br />
+          <input type="checkbox" class="enableOpt"name="Depression" value="Yes" id="cb11"  />
+          <label for="cb11">Depression</label> <br />
+          <input type="checkbox" class="enableOpt" name="High blood pressure" value="Yes" id="cb12"  />
+          <label for="cb12">High blood pressure</label>
+        </div>
+        <div class="group">
+          <input type="checkbox" class="enableOpt" name="Thyroid disease" value="Yes" id="cb13" />
+          <label for="cb13">Thyroid disease</label>
+          <br />
+          <input type="checkbox" class="enableOpt" name="Seizures" value="Yes" id="cb14" />
+          <label for="cb14">Seizures</label> <br />
+          <input type="checkbox" class="enableOpt" name="Back pain" value="Yes" id="cb15" />
+          <label for="cb15">Back pain</label> <br />
+        </div>
+        <div class="group">
+          <input type="checkbox" class="enableOpt" name="Lung disease" value="Yes" id="cb16" />
+          <label for="cb16">Lung disease</label> <br />
+          <input type="checkbox" class="enableOpt" name="Kidney, bladder or prostate disease" value="Yes" id="cb17" />
+          <label for="cb17">Kidney, bladder or prostate disease</label>
+          <br />
+          <input type="checkbox" class="enableOpt" name="Blood clots" value="Yes" id="cb18" />
+          <label for="cb18">Blood clots</label> <br />
+        </div>
+
+<!-- ALLERGIES START -->
+
+
+        <h2 class="allergies">ALLERGIES (include medication, food, latex and environmental allergies)</h2>
+        <div class="group">
+          <p class="some-space">Allergy to:<span class="red-star">*</span></p>
+        <input
+        class="input-field"
+        type="text"
+        name="allergy"
+        id="allergy"
+        maxlength="20"
+        size="20"
+      />
+    </div>
+        <div class="group">
+          <p class="some-space">Severity: </p>
+          <input type="radio" name="Mild" id="rb1" />
+          <label for="rb1">Mild</label>
+          <input type="radio" name="Moderate" id="rb2" />
+          <label for="rb2">Moderate</label>
+          <input type="radio" name="Severe" id="rb3" />
+          <label for="rb3">Severe</label>
+        </div>
+        <div class="group">
+          <p class="some-space">Reaction: </p>
+        <input
+        class="input-field"
+        type="text"
+        name="Reaction"
+        maxlength="20"
+        size="20"
+      />
+        </div>
+
+    <h2 class="allergies">Explain your condition if it was not part of the options above:</h2>
+    <textarea name="Explain your condition" class="input-field" cols="70" rows="3"></textarea>
+
+          <h2 class="allergies">Please enter your full name and email for confirmation:</h2>
+          <div class="group">
+            <p class="some-space">Full Name<span class="red-star">*</span></p> 
+              <input
+              class="input-field"
+              type="text"
+              name="Full Name"
+              id="fullName"
+              maxlength="20"
+              size="20"
+              />
+            </div>
+            <div class="group">
+            <p class="some-space">E-mail<span class="red-star">*</span></p>
+              <input
+              class="input-field"
+              type="text"
+              name="E-mail"
+              id="email"
+              maxlength="30"
+              size="30"
+             />
+            </div>
+            <h2 id="result"></p>
+            <div class="group">
+              <button type="submit" class="btn btn-white btn-animate">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="questionare.js"></script>
+</html>
